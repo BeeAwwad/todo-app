@@ -5,6 +5,7 @@ function App() {
 
   return (
     <div className={styles.App}>
+      <h1>Todo App</h1>
       <TodoList />
     </div>
   );
