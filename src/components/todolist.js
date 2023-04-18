@@ -13,6 +13,18 @@ const TodoList = () => {
         setTodoList([...todoList, newTask]);
       };
 
+      const deleteTask = (taskName) => {
+        const newTodoList = todoList.filter(task => {
+            if (task === taskName){
+                return false;
+            }else{
+                return true;
+            }
+        });
+
+        setTodoList(newTodoList);
+      };
+
 
     return (
         <>
@@ -23,8 +35,8 @@ const TodoList = () => {
         <div>
             {todoList.map((task) => {
                 return <div>
-                    <p>{task}</p>;
-                    {/* <button onClick={() => deleteTask(task)}>x</button> */}
+                    <p>{task}</p>
+                    <button onClick={() => deleteTask(task)}>x</button>
                 </div>
             })}
         </div>
