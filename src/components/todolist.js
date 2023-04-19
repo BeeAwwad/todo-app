@@ -50,6 +50,7 @@ const TodoList = () => {
             <h1>What Todo?</h1>
             <input type="text" value={newTask} onChange={handleInputChange} />
             <button onClick={addTask}>+</button>
+            <h3>{todoList.length} task remaining</h3>
         </div>
         <div>
             {todoList.map((task) => {
