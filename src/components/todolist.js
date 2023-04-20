@@ -41,27 +41,32 @@ const TodoList = () => {
                 }
             })
         )
-      } 
+      }
+      
+      const editTask = (Task) => {
+
+      };
 
 
     return (
-    <>
+    <div>
         <div>
-            <h1>What Todo?</h1>
-            <input type="text" value={newTask} onChange={handleInputChange} />
-            <button onClick={addTask}>+</button>
-            <h3>{todoList.length} task remaining</h3>
-        </div>
-        <div>
+        <h1>What Todo?</h1>
+        <h3>{todoList.length} task remaining</h3>
             {todoList.map((task) => {
-                return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'none'}}>
+                return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white' }}>
                             <p>{task.taskName}</p>
-                            <button onClick={() => deleteTask(task.id)}>x</button>
-                            <button onClick={() => completed(task.id)}>&#10004;</button>
+                            <button onClick={() => editTask(task) }>edit</button>
+                            <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
+                            <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
                         </div>
             })}
         </div>
-    </>
+        <div>
+            <input type="text" value={newTask} onChange={handleInputChange} />
+            <button onClick={addTask}>+</button>
+        </div>
+    </div>
     );
 }
 
