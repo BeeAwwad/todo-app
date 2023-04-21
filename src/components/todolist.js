@@ -55,14 +55,18 @@ const TodoList = () => {
         <h3>{todoList.length} task remaining</h3>
             {todoList.map((task) => {
                 return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white' }}>
-                            <p>{task.taskName}</p>
-                            <button onClick={() => editTask(task) }>edit</button>
-                            <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
-                            <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
+                            <div className={styles.task} style={{color: task.completed ? 'white' : 'black' }}>
+                                <p>{task.taskName}</p>
+                            </div>
+                            <div className={styles.buttons}>
+                                {/* <button onClick={() => editTask(task) }>edit</button> */}
+                                <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
+                                <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
+                            </div>
                         </div>
             })}
         </div>
-        <div>
+        <div className={styles.input}>
             <input type="text" value={newTask} onChange={handleInputChange} />
             <button onClick={addTask}>+</button>
         </div>
