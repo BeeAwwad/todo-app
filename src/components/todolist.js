@@ -68,7 +68,7 @@ const TodoList = () => {
         </div>
         <div className={styles.input}>
             <input type="text" value={newTask} onChange={handleInputChange} />
-            <button onClick={addTask}>+</button>
+            <button onClick={addTask} className={`${styles.btnHover} ${styles.color9}`}>+</button>
         </div>
     </div>
     );
