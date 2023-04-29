@@ -41,11 +41,11 @@ const TodoList = () => {
                 }
             })
         )
-      }
-      
-      const editTask = (Task) => {
-
       };
+      
+    //   const editTask = (Task) => {
+
+    //   };
 
 
     return (
@@ -54,8 +54,10 @@ const TodoList = () => {
         <h1>What Todo?</h1>
         <h3>{todoList.length} task remaining</h3>
             {todoList.map((task) => {
-                return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white' }}>
-                            <div className={styles.task} style={{color: task.completed ? 'white' : 'black' }}>
+                return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white',
+                                                            border: task.completed ? 'white 0px none' : '#73c2fb 5px dashed',
+                                                            color: task.completed ? 'white' : 'black'}}>
+                            <div className={styles.task}>
                                 <p>{task.taskName}</p>
                             </div>
                             <div className={styles.buttons}>
@@ -67,12 +69,12 @@ const TodoList = () => {
             })}
         </div>
         <div className={styles.input}>
-            <input type="text" value={newTask} onChange={handleInputChange} />
-            <button onClick={addTask} className={`${styles.btnHover} ${styles.color9}`}>+</button>
+            <input placeholder="write a task" type="text" value={newTask} onChange={handleInputChange} />
+            <button onClick={addTask} className={`${styles.btnHover} ${styles.color9 }`}>+</button>
         </div>
     </div>
     );
-}
+};
 
 
 
