@@ -10,12 +10,12 @@
 }
 
 .btnHover {
-  width: 100px;
+  width: 80px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  margin: 20px;
+  margin: 8px;
   height: 38px;
   text-align:center;
   border: none;
@@ -41,7 +41,8 @@
 }
 
 .btnHover.color11 {
-  background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+  background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
 }
 .btnHover.color5 {
   background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
@@ -49,8 +50,8 @@
 }
 
 .btnHover.color8 {
-  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
-  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  background-image: linear-gradient(to right, #E6E6FA, #DDA0DD, #EE82EE);
+  box-shadow: 0 4px 15px 0 #E6E6FA;
 }
 
 .btnHover.color9 {

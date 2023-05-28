@@ -77,7 +77,7 @@ const TodoList = () => {
                               : ( <p>{task.taskName}</p> )}
                             </div>
                             <div className={styles.buttons}>
-                                <button onClick={() => editTask(task.id)}>edit</button>
+                                <button className={`${styles.btnHover} ${styles.color8}`} onClick={() => editTask(task.id)}>edit</button>
                                 <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
                                 <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
                             </div>
