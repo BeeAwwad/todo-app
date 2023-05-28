@@ -5,6 +5,7 @@ import { useState } from 'react';
 const TodoList = () => {
     const [todoList, setTodoList] = useState([]);
     const [newTask, setNewTask] = useState('');
+    const [editedTaskId, setEditedTaskId] = useState(null);
     
     const handleInputChange = (event) => {
         setNewTask(event.target.value);
@@ -43,9 +44,22 @@ const TodoList = () => {
         )
       };
       
-    //   const editTask = (Task) => {
+      const editTask = (taskId) => {
+        setEditedTaskId(taskId);
+      };
 
-    //   };
+      const updateTaskName = (taskId, taskName) => {
+        setTodoList(
+          todoList.map((task) => {
+            if (task.id === taskId) {
+              return{...task, taskName};
+            } else {
+              return task;
+            }
+          })
+        );
+        setEditedTaskId(null);
+      };
 
 
     return (
@@ -58,10 +72,12 @@ const TodoList = () => {
                                                             border: task.completed ? 'white 0px none' : '#73c2fb 5px dashed',
                                                             color: task.completed ? 'white' : 'black'}}>
                             <div className={styles.task}>
-                                <p>{task.taskName}</p>
+                            {task.id === editedTaskId ? (
+                              <input type="text" value={task.taskName} onChange={(event) => updateTaskName(task.id, event.target.value)} /> )
+                              : ( <p>{task.taskName}</p> )}
                             </div>
                             <div className={styles.buttons}>
-                                {/* <button onClick={() => editTask(task) }>edit</button> */}
+                                <button onClick={() => editTask(task.id)}>edit</button>
                                 <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
                                 <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
                             </div>
