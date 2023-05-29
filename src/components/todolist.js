@@ -70,7 +70,7 @@ const TodoList = () => {
         <h1>What Todo?</h1>
         <h3>{todoList.length} task remaining</h3>
             {todoList.map((task) => {
-                return <div className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white',
+                return (<div key={task.id} className={styles.tasks} style={{backgroundColor: task.completed ? '#7CF47C' : 'white',
                                                             border: task.completed ? 'white 0px none' : '#73c2fb 5px dashed',
                                                             color: task.completed ? 'white' : 'black'}}>
                             <div className={styles.task}>
@@ -85,7 +85,7 @@ const TodoList = () => {
                                 <button className={`${styles.btnHover} ${styles.color11}`} onClick={() => deleteTask(task.id)}>x</button>
                                 <button className={`${styles.btnHover} ${styles.color5}`} onClick={() => completed(task.id)}>&#10004;</button>
                             </div>
-                        </div>
+                        </div>);
             })}
         </div>
         <div className={styles.input}>
