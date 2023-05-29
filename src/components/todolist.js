@@ -5,7 +5,6 @@ import { useState } from 'react';
 const TodoList = () => {
     const [todoList, setTodoList] = useState([]);
     const [newTask, setNewTask] = useState('');
-    // const [editing, setEditing] = useState(false);
     
     const handleInputChange = (event) => {
         setNewTask(event.target.value);
@@ -37,7 +36,7 @@ const TodoList = () => {
         setTodoList(
             todoList.map((task) => {
                 if (task.id === id) {
-                    return{...task, completed: true};
+                    return{...task, completed: !task.completed};
                 }else {
                     return task;
                 }
