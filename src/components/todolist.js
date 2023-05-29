@@ -5,7 +5,7 @@ import { useState } from 'react';
 const TodoList = () => {
     const [todoList, setTodoList] = useState([]);
     const [newTask, setNewTask] = useState('');
-    const [editedTaskId, setEditedTaskId] = useState(null);
+    // const [editing, setEditing] = useState(false);
     
     const handleInputChange = (event) => {
         setNewTask(event.target.value);
@@ -16,6 +16,7 @@ const TodoList = () => {
             id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
             taskName: newTask,
             completed: false,
+            editing: false,
         };
         setTodoList([...todoList, task]);
       };
@@ -44,23 +45,21 @@ const TodoList = () => {
         )
       };
       
-      const editTask = (taskId) => {
-        setEditedTaskId(taskId);
+      const editTask = (id) => {
+        setTodoList((prevTodoList) =>
+          prevTodoList.map((task) =>
+          task.id === id ? { ...task, editing: !task.editing } : task
+    )
+  );
       };
 
-      const updateTaskName = (taskId, taskName) => {
-        setTodoList(
-          todoList.map((task) => {
-            if (task.id === taskId) {
-              return{...task, taskName};
-            } else {
-              return task;
-            }
-          })
-        );
-        setEditedTaskId(null);
-      };
-
+      let viewMode = {};
+      // let editMode = {};
+      // if (editing) {
+      //   viewMode.display = 'none';
+      // } else {
+      //   editMode.display = 'none';
+      // }
 
     return (
     <div>
@@ -72,9 +71,11 @@ const TodoList = () => {
                                                             border: task.completed ? 'white 0px none' : '#73c2fb 5px dashed',
                                                             color: task.completed ? 'white' : 'black'}}>
                             <div className={styles.task}>
-                            {task.id === editedTaskId ? (
-                              <input type="text" value={task.taskName} onChange={(event) => updateTaskName(task.id, event.target.value)} /> )
-                              : ( <p>{task.taskName}</p> )}
+                            {task.editing ? (
+                              <input type="text" className={styles.textInput} value={task.taskName}/>
+                            ) : (
+                              <p style={viewMode}>{task.taskName}</p>
+                             )}
                             </div>
                             <div className={styles.buttons}>
                                 <button className={`${styles.btnHover} ${styles.color8}`} onClick={() => editTask(task.id)}>edit</button>

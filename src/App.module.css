@@ -50,8 +50,8 @@
 }
 
 .btnHover.color8 {
-  background-image: linear-gradient(to right, #E6E6FA, #DDA0DD, #EE82EE);
-  box-shadow: 0 4px 15px 0 #E6E6FA;
+  background-image: linear-gradient(to right, #FF8C00, #FFD700, #FFBF00, #FFA500);
+  box-shadow: 0 4px 15px 0 #FFE5B4;
 }
 
 .btnHover.color9 {
@@ -83,6 +83,9 @@
 
 /* Input Area */
 
-.input {
-  margin: 30px;
+.textInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+  outline: none;
 }
