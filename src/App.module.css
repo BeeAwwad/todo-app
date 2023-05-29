@@ -50,8 +50,8 @@
 }
 
 .btnHover.color8 {
-  background-image: linear-gradient(to right, #FF8C00, #FFD700, #FFBF00, #FFA500);
-  box-shadow: 0 4px 15px 0 #FFE5B4;
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 .btnHover.color9 {
