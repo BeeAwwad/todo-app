@@ -53,13 +53,17 @@ const TodoList = () => {
   );
       };
 
+      const setUpdate = (updatedTitle, id) => {
+        setTodoList(todoList.map((task) => {
+          if (task.id === id) {
+            task.taskName = updatedTitle;
+          }
+          return task;
+        }))
+      };
+    
+
       let viewMode = {};
-      // let editMode = {};
-      // if (editing) {
-      //   viewMode.display = 'none';
-      // } else {
-      //   editMode.display = 'none';
-      // }
 
     return (
     <div>
@@ -72,7 +76,7 @@ const TodoList = () => {
                                                             color: task.completed ? 'white' : 'black'}}>
                             <div className={styles.task}>
                             {task.editing ? (
-                              <input type="text" className={styles.textInput} value={task.taskName}/>
+                              <input type="text" className={styles.textInput} value={task.taskName} onChange={(e) => setUpdate(e.target.value, task.id)}/>
                             ) : (
                               <p style={viewMode}>{task.taskName}</p>
                              )}
