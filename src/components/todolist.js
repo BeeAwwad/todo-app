@@ -62,7 +62,6 @@ const TodoList = () => {
       };
     
 
-      let viewMode = {};
 
     return (
     <div>
@@ -77,7 +76,7 @@ const TodoList = () => {
                             {task.editing ? (
                               <input type="text" className={styles.textInput} value={task.taskName} onChange={(e) => setUpdate(e.target.value, task.id)}/>
                             ) : (
-                              <p style={viewMode}>{task.taskName}</p>
+                              <p className={styles.wrapper}>{task.taskName}</p>
                              )}
                             </div>
                             <div className={styles.buttons}>
